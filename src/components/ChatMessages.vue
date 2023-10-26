@@ -1,0 +1,37 @@
+<template>
+  <div class="chat__list">
+      <div v-for="(message, index) in messages" :key="index" :class="messageClasses(message)">
+        <ChatMessage :message="message"/>
+      </div>
+  </div>
+</template>
+
+<script>
+import ChatMessage from "@/components/ChatMessage.vue";
+export default {
+  name: 'ChatMessages',
+  components: {ChatMessage},
+  props: {
+    messages: {
+      type: Array,
+      required: true,
+    }
+  },
+  data() {
+    return {}
+  },
+  methods: {
+    messageClasses(message) {
+      return {
+        'message__assistant': message.author === 'e',
+      };
+    },
+  }
+}
+</script>
+
+<style>
+.message__assistant {
+  background-color: #F8F8FC;
+}
+</style>
