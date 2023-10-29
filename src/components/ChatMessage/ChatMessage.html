@@ -1,0 +1,24 @@
+<div class="message">
+    <div class="message__author" :class="authorClasses"></div>
+    <div class="message__text">
+        <div class="message__icons" v-if="message.author === 'e' && !isEdit">
+            <div class="message__wrapper">
+                <i class="fa-likes"></i>
+                <i class="fa-dislike"></i>
+            </div>
+            <div class="message__wrapper">
+                <i class="fa-save"></i>
+                <i class="fa-edit" @click="editMessage"></i>
+                <i class="fa-copy" @click="copyMessage"></i>
+            </div>
+        </div>
+        <div class="message__edit" v-if="message.author === 'e' && isEdit">
+            <div class="message__save" @click="saveMessage">Сохранить изменения</div>
+            <div class="message__cancel" @click="()=> {isEdit = false}">Отмена</div>
+        </div>
+        <div class="message__list" :class="{'message__list--active': message.author === 'e' && isEdit}" ref="list">
+            <pre class="message__item" v-show="!isEdit" ref="description">{{message.text}}</pre>
+            <textarea :value="message.text" v-show="isEdit" ref="textarea" @change="changeTextarea($event)"></textarea>
+        </div>
+    </div>
+</div>
