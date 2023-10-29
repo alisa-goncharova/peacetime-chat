@@ -70,7 +70,7 @@ export default {
   margin-right: 28px;
 }
 .message__text {
-  font-family: 'SF Pro Text';
+  font-family: 'SF Pro Text', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;

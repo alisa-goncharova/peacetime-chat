@@ -18,7 +18,7 @@ export default {
 
 <style>
 * {
-  font-family: 'SF Pro Text';
+  font-family: 'SF Pro Text', sans-serif;
 }
 </style>
 

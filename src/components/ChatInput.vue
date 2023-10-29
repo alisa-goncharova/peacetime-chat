@@ -45,7 +45,7 @@ export default {
   padding: 0 0 0 15px;
   background-color: #454246;
   color: #fff;
-  font-family: 'SF Pro Text';
+  font-family: 'SF Pro Text', sans-serif;
   width: 100%;
 }
 .chat__wrapper > input::placeholder {
@@ -63,7 +63,7 @@ export default {
   cursor: pointer;
 }
 .chat__label {
-  font-family: 'SF Pro Text';
+  font-family: 'SF Pro Text', sans-serif;
   font-size: 13px;
   line-height: 16px;
   color: #454246;
