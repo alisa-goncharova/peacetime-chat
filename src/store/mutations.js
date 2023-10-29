@@ -1,9 +1,8 @@
 const mutations = {
     UPDATE_MESSAGES(state, payload) {
+        //Ищем включение id,меняем сообщенпие в state
         state.messages = state.messages.map((message, index) => {
-            console.log(index === payload.id);
             if(index === payload.id) {
-                console.log({...message, text: payload.text});
                 return {...message, text: payload.text}
             }
             return message;

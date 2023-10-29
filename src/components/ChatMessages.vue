@@ -21,6 +21,7 @@ export default {
     return {}
   },
   methods: {
+    //Определяем стили для блоков
     messageClasses(message) {
       return {
         'message__assistant': message.author === 'e',

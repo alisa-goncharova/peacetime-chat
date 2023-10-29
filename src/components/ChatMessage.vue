@@ -39,10 +39,12 @@ export default {
   },
   data() {
     return {
-      isEdit: false
+      isEdit: false,
+      editedText: ''
     }
   },
   computed: {
+    //Возвращаем необходимую аватарку
     authorClasses() {
       return [
         this.message.author === 'e' ? 'fa-assistant' : 'fa-avatar',
@@ -50,9 +52,11 @@ export default {
     },
   },
   methods: {
+    // Копируем сообщение
     copyMessage() {
       let copy = this.$refs.list.innerText;
 
+      //Записываем строку copy в системный буфер обмена
       navigator.clipboard.writeText(copy)
           .then(() =>{
             console.log('ok')
@@ -61,18 +65,23 @@ export default {
             console.log(error)
           })
     },
+    // Редактируем сообщение
     editMessage() {
-      let heightTextarea = this.$refs.description.offsetHeight;
-      this.$refs.textarea.style.height = `${ heightTextarea}px`;
+      let heightTextarea = this.$refs.description.offsetHeight; // Высчитываем высоту блока
+      this.$refs.textarea.style.height = `${ heightTextarea}px`; // Присваем высоту блока textarea
       this.isEdit = true;
 
     },
+    //Сохраняем сообщение в state
     changeTextarea(event) {
-      // console.log(event.target.value)
-      this.$store.commit('UPDATE_MESSAGES', {id: this.messageId, text: event.target.value})
+      this.editedText = event.target.value;
     },
     saveMessage() {
-      this.isEdit = false;
+      if(this.editedText) {
+        //Вызыываем мутацию
+        this.$store.dispatch('updateMessageAction', {id: this.messageId, text: this.editedText})
+        this.isEdit = false;
+      }
     }
   }
 }
