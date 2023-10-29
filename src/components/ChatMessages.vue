@@ -24,6 +24,7 @@ export default {
     messageClasses(message) {
       return {
         'message__assistant': message.author === 'e',
+        'message__users':message.author !== 'e'
       };
     },
   }

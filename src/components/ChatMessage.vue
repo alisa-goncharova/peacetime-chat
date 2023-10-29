@@ -9,16 +9,17 @@
       </div>
       <div class="message__wrapper">
         <i class="fa-save"></i>
-        <i class="fa-edit" @click="()=> {isEdit = true}"></i>
+        <i class="fa-edit" @click="editMessage"></i>
         <i class="fa-copy" @click="copyMessage"></i>
       </div>
     </div>
     <div class="message__edit" v-if="message.author === 'e' && isEdit">
-        <div class="message__save">Сохранить изменения</div>
+        <div class="message__save" @click="saveMessage">Сохранить изменения</div>
         <div class="message__cancel" @click="()=> {isEdit = false}">Отмена</div>
     </div>
     <div class="message__list" :class="{'message__list--active': message.author === 'e' && isEdit}" ref="list">
-      <p class="message__item" v-for="(item, index) in message.text" :key="index" v-html="item">{{item}}</p>
+      <pre class="message__item" v-show="!isEdit" ref="description">{{message.text}}</pre>
+      <textarea :value="message.text" v-show="isEdit" ref="textarea" @change="changeTextarea($event)"></textarea>
     </div>
   </div>
 </div>
@@ -31,7 +32,7 @@ export default {
   },
   data() {
     return {
-      isEdit: false,
+      isEdit: false
     }
   },
   computed: {
@@ -52,6 +53,18 @@ export default {
           .catch(error => {
             console.log(error)
           })
+    },
+    editMessage() {
+      let heightTextarea = this.$refs.description.offsetHeight;
+      this.$refs.textarea.style.height = `${ heightTextarea}px`;
+      this.isEdit = true;
+
+    },
+    changeTextarea(event) {
+      console.log(event.target.value)
+    },
+    saveMessage() {
+      this.isEdit = false;
     }
   }
 }
@@ -78,7 +91,8 @@ export default {
   width: 100%;
 }
 .message__item {
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  white-space: pre-wrap;
 }
 .message__icons {
   display: flex;
@@ -122,6 +136,13 @@ export default {
   border: 1px solid #F8F8FC;
   padding: 20px 10px 20px 20px;
   border-radius: 10px;
+}
+.message__list > textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
 }
 .message__list--active {
   border: 1px solid #99969B;
