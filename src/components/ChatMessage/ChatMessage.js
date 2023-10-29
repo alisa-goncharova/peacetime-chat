@@ -28,14 +28,19 @@ export default {
         copyMessage() {
             let copy = this.$refs.list.innerText;
 
+            this.$refs.tooltip.classList.add('message__tooltip--active')
             //Записываем строку copy в системный буфер обмена
             navigator.clipboard.writeText(copy)
                 .then(() =>{
-                    console.log('ok')
+                    console.log('Скопировано');
                 })
                 .catch(error => {
                     console.log(error)
                 })
+            // Отображаем tooltip и удаляем через 2 секунды
+            setTimeout(() => {
+                this.$refs.tooltip.classList.remove('message__tooltip--active')
+            }, 2000)
         },
         // Редактируем сообщение
         editMessage() {

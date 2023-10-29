@@ -10,6 +10,8 @@
                 <i class="fa-save"></i>
                 <i class="fa-edit" @click="editMessage"></i>
                 <i class="fa-copy" @click="copyMessage"></i>
+
+                <div class="message__tooltip" ref="tooltip">Скопировано!</div>
             </div>
         </div>
         <div class="message__edit" v-if="message.author === 'e' && isEdit">

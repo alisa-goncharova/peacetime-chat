@@ -30,6 +30,7 @@
 .message__icons {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 .message__edit {
     display: flex;
@@ -82,6 +83,25 @@
 }
 .message__wrapper {
     display: flex;
+}
+.message__tooltip {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 16px;
+    line-height: 16px;
+    background: #10b981;
+    border: 1px solid #10b981;
+    padding: 10px 10px;
+    color: #fff;
+    border-radius: 16px;
+    position: absolute;
+    right: 58px;
+    top: -7px;
+    display: none;
+    transition: all 0.3ms;
+}
+.message__tooltip--active {
+    display: block;
+    transition: all 0.3ms;
 }
 .message__wrapper > i {
     margin-right: 12px;
