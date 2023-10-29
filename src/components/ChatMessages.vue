@@ -1,7 +1,7 @@
 <template>
   <div class="chat__list">
       <div v-for="(message, index) in messages" :key="index" :class="messageClasses(message)">
-        <ChatMessage :message="message"/>
+        <ChatMessage :message="message" :messageId="index"/>
       </div>
   </div>
 </template>

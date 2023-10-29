@@ -28,7 +28,14 @@
 <script>
 export default {
   props: {
-    message: {},
+    message: {
+      type: Object,
+      required: true
+    },
+    messageId: {
+      type: Number,
+      required: true
+    }
   },
   data() {
     return {
@@ -61,7 +68,8 @@ export default {
 
     },
     changeTextarea(event) {
-      console.log(event.target.value)
+      // console.log(event.target.value)
+      this.$store.commit('UPDATE_MESSAGES', {id: this.messageId, text: event.target.value})
     },
     saveMessage() {
       this.isEdit = false;
