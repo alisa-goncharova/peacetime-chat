@@ -7,6 +7,10 @@ const mutations = {
             }
             return message;
         })
+    },
+    ADD_MESSAGE(state, payload) {
+        state.messages.push(payload);
+        console.log(payload);
     }
 }
 
