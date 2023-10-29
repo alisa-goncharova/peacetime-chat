@@ -1,3 +1,7 @@
 .message__assistant {
     background-color: #F8F8FC;
 }
+.message__users > .message {
+    display: flex;
+    align-items: center;
+}

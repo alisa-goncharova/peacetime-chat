@@ -3,7 +3,7 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    padding-top: 15px;
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 .message__author {
@@ -21,10 +21,15 @@
     margin-bottom: 10px;
     white-space: pre-wrap;
 }
+.message__users > .message > .message__text > .message__list > .message__item {
+    margin-bottom: 0;
+}
+.message__users > .message > .message__text > .message__list {
+    padding: 0 10px 0 20px;
+}
 .message__icons {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 20px;
 }
 .message__edit {
     display: flex;

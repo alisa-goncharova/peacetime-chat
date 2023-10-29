@@ -2,9 +2,10 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 16px 0 #4444441F;
+    margin-bottom: 20px;
 }
 .header__title {
-    font-family: 'SF Pro Text';
+    font-family: 'SF Pro Text', sans-serif;
     text-align: center;
     font-size: 14px;
     line-height: 18px;
