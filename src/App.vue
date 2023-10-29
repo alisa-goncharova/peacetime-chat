@@ -10,7 +10,6 @@
 import ChatHeader from "@/components/ChatHeader.vue";
 import Chat from "@/pages/templateChat.vue";
 
-
 export default {
   name: 'App',
   components: {Chat, ChatHeader}
